@@ -1,0 +1,123 @@
+import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
+import axios from 'axios';
+import swal from 'sweetalert';
+import Header from '../Home/Header';
+
+export default class Add_BBook extends Component {
+
+    state={
+       Name:'',
+       
+       Price:'',
+     
+       Language:'',
+      
+       Image:'',
+       error_list:[]
+    }
+
+    handleinput=(e)=>{
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+       
+    }
+
+    SaveOwner= async(e)=>{
+      e.preventDefault();
+    const res=await axios.post('http://127.0.0.1:8000/api/add-bbook',this.state);
+    if(res.data.status===200){
+       // console.log(res.data.message);
+       swal({
+        title: "Good job!",
+        text: res.data.message,
+        icon: "success",
+        button: "Aww yiss!",
+      });
+        this.setState({
+            Name:'',
+          
+            Price:'',
+           
+            Language:'',
+           
+            Image:''
+        });
+    }
+    else{
+        this.setState({
+            error_list:res.data.validator_err,
+    })
+    }
+    }
+    render() {
+        return (
+            <>
+            <Header/>
+            <div className="container">
+                <div className="row">
+                <div className="col-md-12">
+                    <div className="card">
+                        <div className="card-header">
+                         <h1>
+                             Add Product
+                             <Link to={'/books'} className="btn btn-primary btn-sm float-end">Back</Link>
+                         </h1>
+                        </div>
+                        <div className="card-body">
+                           <form onSubmit={this.SaveOwner}>
+                             <div className="form-grp mb-3">
+                              <label>Name </label>
+                              <input type="text" name="Name" onChange={this.handleinput} value={this.state.Name} className="form-control" />
+                              <span className="text-danger">{this.state.error_list.Name}</span>
+                             </div>
+
+                            
+
+                            
+
+                         
+                             <div className="form-grp mb-3">
+                              <label>Price</label>
+                              <input type="text" name="Price" onChange={this.handleinput} value={this.state.Price} className="form-control" />
+                              <span className="text-danger">{this.state.error_list.Price}</span>
+                             </div>
+
+                            
+                             
+
+                            
+
+
+                             <div className="form-grp mb-3">
+                              <label>Language</label>
+                              <input type="text" name="Language" onChange={this.handleinput} value={this.state.Language} className="form-control" />
+                              <span className="text-danger">{this.state.error_list.Language}</span>
+                             </div>
+
+
+                         
+
+
+                             <div className="form-grp mb-3">
+                              <label>Image</label>
+                              <input type="text" name="Image" onChange={this.handleinput} value={this.state.Image} className="form-control" />
+                              <span className="text-danger">{this.state.error_list.Image}</span>
+                             </div>
+
+                             <div className="form-grp mb-3">
+                             <button type="submit" className="btn btn-primary">Save</button>
+                             </div>
+                           </form>
+                        </div>
+                    </div>
+
+                </div>
+                </div>
+                
+            </div>
+            </>
+        );
+    }
+}

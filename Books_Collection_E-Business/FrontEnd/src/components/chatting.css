@@ -1,0 +1,110 @@
+.messageSender{
+   border: 2px #5d5fc7 solid;
+   margin:10px;
+   margin-top: 50px;
+   padding: 8px;
+   max-width: 250px;
+   background-color: #5d5fc7;
+   color: white;
+
+   word-wrap:break-word;
+   border-radius: 25px;
+
+}
+
+.messageReciver{
+   border: 2px #5d5fc7 solid;
+   /* margin:10px; */
+   margin-top: 50px;
+   padding: 8px;
+   float:left; 
+   clear:left;
+   border-radius: 25px;
+   color: #5d5fc7;
+
+   max-width: 250px;
+   word-wrap:break-word;
+
+}
+
+.messageSender{
+   border: 2px #5d5fc7 solid;
+   margin-top: 50px;
+   padding: 8px;
+   float:right; 
+   clear:right;
+   border-radius: 25px;
+   max-width: 250px;
+   word-wrap:break-word;
+}
+
+.messagePart{
+   border: 3px solid #5d5fc7;
+   background-color: white;
+   padding: 8px;
+   margin:5px 0px;
+   width: 450px;
+   float:right; 
+   clear:right;
+   height: 730px;
+}
+
+
+
+.msgTypingPart{
+   border: 3px solid #5d5fc7;
+   position: relative;
+   bottom: -10px;
+   height: 100px;
+   width: 443px;
+
+}
+
+.msgTypingPart textarea{
+   border: 3px solid #5d5fc7;
+   resize: none;
+   height: 90px;
+   width: 350px;
+   font-weight: bold;
+   font-size: 15px;
+
+}
+
+.msgTypingPart button{
+   border: 3px solid #5d5fc7;
+   resize: none;
+   height: 101px;
+   width: 83px;
+   padding: 2px;
+   position: relative;
+   top:-43px;
+   font-weight: bold;
+   font-size: 20px;
+}
+
+.msgTypingPart button:hover{
+   background-color: #5d5fc7;
+   color: white;
+}
+
+.allMessages{
+   height:580px;
+}
+
+.chattingHeader{
+   border: 2px #5d5fc7 solid;
+   height: 35px;
+   width: 460px;
+   margin-top: -5px;
+   margin-left: -5px;
+   text-align: center;
+   font-weight: bold;
+   padding-top: 8px;
+}
+
+.Chatting{
+   border: #5d5fc7 2px solid;
+   width: 500px;
+   margin-left: auto;
+   margin-right: auto;
+}
